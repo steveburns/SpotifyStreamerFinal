@@ -13,12 +13,36 @@ public class TrackItem implements Parcelable {
     private static final String KEY_ALBUM = "album";
     private static final String KEY_PREVIEW_URL = "previewurl";
 
-    public String id;
-    public String name;
-    public String imageUrl;
-    public String imageFullUrl;
-    public String album;
-    public String preview_url;
+    private String id;
+    private String name;
+    private String imageUrl;
+    private String imageFullUrl;
+    private String album;
+    private String preview_url;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getImageFullUrl() {
+        return imageFullUrl;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public String getPreview_url() {
+        return preview_url;
+    }
 
     public TrackItem(String id, String name, String imageUrl, String imageFullUrl, String album, String preview_url) {
         this.id = id;

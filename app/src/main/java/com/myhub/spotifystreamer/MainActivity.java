@@ -1,34 +1,21 @@
 package com.myhub.spotifystreamer;
 
-import android.app.Activity;
-import android.content.Context;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.internal.app.ToolbarActionBar;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
+
+import com.myhub.spotifystreamer.fragments.ArtistSearchFragment;
+import com.myhub.spotifystreamer.fragments.PlayerFragment;
+import com.myhub.spotifystreamer.fragments.TopTracksFragment;
+import com.myhub.spotifystreamer.utils.AppConstants;
 
 import java.util.ArrayList;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import kaaes.spotify.webapi.android.SpotifyApi;
-import kaaes.spotify.webapi.android.SpotifyService;
-import kaaes.spotify.webapi.android.models.Artist;
-import kaaes.spotify.webapi.android.models.ArtistsPager;
 
 /* Here's a word on using AppCompatActivity:
 
@@ -39,54 +26,43 @@ http://android-developers.blogspot.ca/2015/04/android-support-library-221.html
 and
 http://developer.android.com/tools/support-library/index.html
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements
+        ArtistSearchFragment.OnFragmentInteractionListener,
+        TopTracksFragment.OnFragmentInteractionListener
+{
 
-    private static final String KEY_ARTIST_LIST = "artists";
-    private static final String KEY_ARTIST_SEARCH = "search_term";
-    private String mSavedSearchText = "";
-    private ArrayList<ArtistItem> mArtistList = null;
-    private ArtistAdapter mArtistAdapter = null;
+    private boolean mTwoPane;
 
-    @InjectView(R.id.listView) ListView myListView;
-    @InjectView(R.id.artistSearchText) EditText artistSearchText;
+//    @InjectView(R.id.listView) ListView myListView;
+//    @InjectView(R.id.artistSearchText) EditText artistSearchText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+//        ButterKnife.inject(this);
+
+        if(findViewById(R.id.fragment_top_tracks_container) != null) {
+            Log.d("MainActivity", "This is 2 Pane device");
+            mTwoPane = true;
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_top_tracks_container, new TopTracksFragment(), "")
+                        .commit();
+            }
+        } else {
+            mTwoPane = false;
+        }
 
         if (savedInstanceState != null) {
             restoreInstanceState(savedInstanceState);
         }
-
-        if(mArtistList == null) {
-            mArtistList = new ArrayList<>();
-        }
-        if (mArtistAdapter == null) {
-            mArtistAdapter = new ArtistAdapter(getBaseContext(), mArtistList);
-        }
-
-        myListView.setAdapter(mArtistAdapter);
-        artistSearchText.addTextChangedListener(getTextWatcher(this));
-
-        final Context activityContext = this;
-        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ArtistItem artist = (ArtistItem) myListView.getAdapter().getItem(position);
-                Intent intent = new Intent(activityContext, TracksActivity.class);
-                intent.putExtra("artist_id", artist.id);
-                intent.putExtra("artist_name", artist.name);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putParcelableArrayList(KEY_ARTIST_LIST, mArtistList);
-        outState.putString(KEY_ARTIST_SEARCH, mSavedSearchText);
+//        outState.putParcelableArrayList(KEY_ARTIST_LIST, mArtistList);
+//        outState.putString(KEY_ARTIST_SEARCH, mSavedSearchText);
         super.onSaveInstanceState(outState);
     }
 
@@ -97,36 +73,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restoreInstanceState(Bundle savedState) {
-        mArtistList = savedState.getParcelableArrayList(KEY_ARTIST_LIST);
-        mSavedSearchText = savedState.getString(KEY_ARTIST_SEARCH);
-    }
-
-    private TextWatcher getTextWatcher(final Activity context) {
-
-        return new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String currentText = artistSearchText.getText().toString();
-                if (!currentText.equals(mSavedSearchText)) {
-                    mSavedSearchText = currentText;
-                    Log.d("afterTextChanged", mSavedSearchText);
-                    context.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            new searchArtists().execute(mSavedSearchText);
-                        }
-                    });
-                }
-            }
-        };
+//        mArtistList = savedState.getParcelableArrayList(KEY_ARTIST_LIST);
+//        mSavedSearchText = savedState.getString(KEY_ARTIST_SEARCH);
     }
 
     @Override
@@ -136,56 +84,77 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Task class to get list of artists using the search term(s) the user entered.
-    //
-    private class searchArtists extends AsyncTask<String, Void, Integer> {
+    @Override
+    public void onArtistSelected(ArtistItem artist) {
 
-        @Override
-        protected void onPostExecute(Integer numArtists) {
-
-            // This method runs on the UI thread so we can update the UI.
-
-            // Notify the adapter that the list of artists has changed.
-            // Good post about how this operates under the covers:
-            // http://stackoverflow.com/questions/3669325/notifydatasetchanged-example
-            mArtistAdapter.notifyDataSetChanged();
-
-            if (numArtists < 1) {
-                // There was a search string, but nothing was returned
-                Toast.makeText(getApplicationContext(), "No artists found", Toast.LENGTH_SHORT).show();
-            }
+        if(mTwoPane) {
+            Log.d("Selected", "Artist selected in 2 pane mode");
+            TopTracksFragment fragment = TopTracksFragment.newInstance(artist);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_top_tracks_container, fragment, "")
+                    .commit();
+        } else {
+            Log.d("Selected", "Artist selected in phone mode");
+            Intent intent = new Intent(this, TracksActivity.class);
+            intent.putExtra(AppConstants.ARTIST_ITEM, artist);
+            startActivity(intent);
         }
+    }
 
-        @Override
-        protected Integer doInBackground(String... params) {
+    @Override
+    public void onTrackSelected(String artistName, ArrayList<TrackItem> tracksList, int position) {
+        Log.d("Selected", "Track selected. Position = " + Integer.toString(position));
 
-            mArtistList.clear();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment prev = fm.findFragmentByTag(AppConstants.PLAYER_FRAG_TAG);
+        if (prev != null) {
 
-            // Get artists on a background thread
-            String artistSearchText = params[0];
-            if (!TextUtils.isEmpty(artistSearchText)) {
-                try {
-                    SpotifyApi api = new SpotifyApi();
-                    SpotifyService spotify = api.getService();
-                    ArtistsPager results = spotify.searchArtists(artistSearchText);
-
-                    if (results.artists != null) {
-                        if (results.artists.items.size() > 0) {
-                            // We have results, size the array exactly.
-                            for (Artist artist : results.artists.items) {
-                                String url = null;
-                                if (artist.images != null && artist.images.size() > 0) {
-                                    url = artist.images.get(artist.images.size() - 1).url;
-                                }
-                                mArtistList.add(new ArtistItem(artist.id, artist.name, url));
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    Log.e("Exception logged", e.getMessage());
-                }
-            }
-            return mArtistList.size();
+            // TODO: this may not be the right way to do this.
+            // Maybe just show existing one.
+            ft.remove(prev);
         }
+        ft.addToBackStack(null);
+
+        // Create and show the dialog.
+        PlayerFragment fragment = PlayerFragment.newInstance(artistName, tracksList, position);
+        fragment.show(ft, AppConstants.PLAYER_FRAG_TAG);
+
+  //      getSupportFragmentManager().beginTransaction()
+  //              .replace(android.R.id.content, fragment, "")
+  //              .commit();
+
+        /*
+        Android sample ---------
+
+    // DialogFragment.show() will take care of adding the fragment
+    // in a transaction.  We also want to remove any currently showing
+    // dialog, so make our own transaction and take care of that here.
+    FragmentTransaction ft = getFragmentManager().beginTransaction();
+    Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+    if (prev != null) {
+        ft.remove(prev);
+    }
+    ft.addToBackStack(null);
+
+    // Create and show the dialog.
+    DialogFragment newFragment = MyDialogFragment.newInstance(mStackLevel);
+    newFragment.show(ft, "dialog");
+         */
+
+        /* -- Jordan's code
+
+            FragmentManager fragmentManager = ((AppCompatActivity) mContext).getSupportFragmentManager();
+            PlayerFragment fragment = PlayerFragment.newInstance(mTracks, mPosition, false);
+
+            if (mContext.getResources().getBoolean(R.bool.isTablet)) {
+                fragment.show(fragmentManager, PLAYER_DIALOG_TAG);
+            } else {
+                fragmentManager.beginTransaction()
+                        .replace(android.R.id.content, fragment, PLAYER_FRAG_TAG)
+                        .commit();
+            }
+
+         */
     }
 }

@@ -36,13 +36,13 @@ public class TrackAdapter extends ArrayAdapter<TrackItem> {
         ImageView ivUrl = (ImageView) convertView.findViewById(R.id.url);
 
         // Populate the data into the template view using the data object
-        tvName.setText(trackItem.name);
-        tvAlbumName.setText(trackItem.album);
+        tvName.setText(trackItem.getName());
+        tvAlbumName.setText(trackItem.getAlbum());
 
         // Populate the image view with the artist image using picasso.
-        if (!TextUtils.isEmpty(trackItem.imageUrl)) {
+        if (!TextUtils.isEmpty(trackItem.getImageUrl())) {
             Picasso.with(this.getContext())
-                    .load(trackItem.imageUrl)
+                    .load(trackItem.getImageUrl())
                     .into(ivUrl);
         }
 

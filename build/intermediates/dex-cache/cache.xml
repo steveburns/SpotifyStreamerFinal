@@ -2,27 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.2.0/c0b52915a48fa91b1b94a28d4a2997bac5f524df/okio-1.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c0b52915a48fa91b1b94a28d4a2997bac5f524df">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/okio-1.2.0-e4004da5f0bb843e5ec8aa369c1fd8d38300e7a8.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/classes-cfca4deb889d9eb0dc9eb83a17962068abb6004f.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-d9de50e1e12bbc9a2a23b41677f882bffdce78d2.jar" />
-    </item>
-    <item
         jar="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -30,11 +9,60 @@
         <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/classes-641f70291f515cf96db64764189e3914561d21cb.jar" />
     </item>
     <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/SpotifyStreamerFinal/spotify-web-api-android-0.1.0/unspecified/jars/libs/jacocoagent.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-062cbf8e5b7ab1871f8ac6114bf2383ff23bca46.jar" />
+        sha1="ea73283d55c98ab1fccb8c23d76c68b7d7ecbd83">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/jacocoagent-e2eea7e2aac0b80f7b2d455ff59722975b03da59.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/gson-2.3.1-0110cbd5f09dd42c355bf3d906ab4f248ef8c720.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-96438bc381b1974ab60d9273b16dd7d049e0d899.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-4b7be95876f2d2977e587ca22dac178e36aab0fb.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/classes-2f4a7af6f46ba4979ad690be7bc108d982237ded.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/okhttp-2.2.0-6aa437d9f1e364de7787eab5f32ab947c937c10e.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-d7a14a1683b8c4d499cda4975c79f37c90262ff0.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-b740cc65540ceb3469c6236bd6dc76be420e2c29.jar" />
     </item>
     <item
         jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/SpotifyStreamerFinal/spotify-web-api-android-0.1.0/unspecified/jars/classes.jar"
@@ -51,25 +79,11 @@
         <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/jacocoagent-e2bb625f0e643ffa826d5497e5f4d14a5e07fcd1.jar" />
     </item>
     <item
-        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/SpotifyStreamerFinal/spotify-web-api-android-0.1.0/unspecified/jars/libs/jacocoagent.jar"
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="ea73283d55c98ab1fccb8c23d76c68b7d7ecbd83">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/jacocoagent-e2eea7e2aac0b80f7b2d455ff59722975b03da59.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/okhttp-2.2.0-6aa437d9f1e364de7787eab5f32ab947c937c10e.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-eba85c650b0e9d5ee0beae245ed8449462be31eb.jar" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-062cbf8e5b7ab1871f8ac6114bf2383ff23bca46.jar" />
     </item>
     <item
         jar="/Users/sburns/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
@@ -79,32 +93,25 @@
         <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-6c9fa27d428933e331cdb2a0e7dffe3268e72408.jar" />
     </item>
     <item
-        jar="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-b740cc65540ceb3469c6236bd6dc76be420e2c29.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/classes-6513c6eecb222d6a1eb5056e6f2cc89e048c484c.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a681c044244d9fc375198588297a39ba78028423">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-96438bc381b1974ab60d9273b16dd7d049e0d899.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
+        jar="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/classes-fcf2e3cbd87784cf3cb7b4e4dfb94179c2c0b48f.jar" />
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/classes-cfca4deb889d9eb0dc9eb83a17962068abb6004f.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamerFinal/app/build/intermediates/pre-dexed/debug/classes-f242b05cde11ea6c2cb68150e59e94d2f9daf666.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-d9de50e1e12bbc9a2a23b41677f882bffdce78d2.jar" />
     </item>
     <item
         jar="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/exploded-aar/SpotifyStreamer/spotify-web-api-android-0.1.0/unspecified/jars/classes.jar"
@@ -114,11 +121,11 @@
         <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/classes-e0d8ab0116fb38b6b52c7f36d47def7b7c4dec4c.jar" />
     </item>
     <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.2.0/c0b52915a48fa91b1b94a28d4a2997bac5f524df/okio-1.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/gson-2.3.1-0110cbd5f09dd42c355bf3d906ab4f248ef8c720.jar" />
+        sha1="c0b52915a48fa91b1b94a28d4a2997bac5f524df">
+        <dex dex="/Users/sburns/AndroidUdacity/SpotifyStreamer/app/build/intermediates/pre-dexed/debug/okio-1.2.0-e4004da5f0bb843e5ec8aa369c1fd8d38300e7a8.jar" />
     </item>
 
 </items>

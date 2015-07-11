@@ -7,21 +7,11 @@
     android:id="@+id/mainActivity"
     tools:context=".MainActivity">
 
-    <EditText
+    <fragment
+        android:id="@+id/fragment_artist_search"
+        android:name="com.myhub.spotifystreamer.fragments.ArtistSearchFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/artistSearchText"
-        android:saveEnabled="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/artistSearchText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_artist_search" />
 
 </RelativeLayout>
