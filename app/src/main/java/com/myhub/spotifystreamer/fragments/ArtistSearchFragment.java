@@ -63,7 +63,6 @@ public class ArtistSearchFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment ArtistSearchFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static ArtistSearchFragment newInstance(String param1, String param2) {
         ArtistSearchFragment fragment = new ArtistSearchFragment();
         Bundle args = new Bundle();
@@ -86,13 +85,6 @@ public class ArtistSearchFragment extends Fragment {
         outState.putString(KEY_ARTIST_SEARCH, mSavedSearchText);
         super.onSaveInstanceState(outState);
     }
-
-/*    @Override
-    public void onRestoreInstanceState(Bundle savedState) {
-        super.onRestoreInstanceState(savedState);
-        restoreInstanceState(savedState);
-    }
-*/
 
     public void restoreInstanceState(Bundle savedState) {
         mArtistList = savedState.getParcelableArrayList(KEY_ARTIST_LIST);

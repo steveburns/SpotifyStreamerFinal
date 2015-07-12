@@ -118,26 +118,11 @@ public class TopTracksFragment extends Fragment {
 
         myListView.setAdapter(mTracksAdapter);
 
-        /* TODO
-        ActionBar actionBar = getActivity(). getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setSubtitle(mSavedArtistName);
-        }*/
-
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-/*                TrackItem track = (TrackItem) myListView.getAdapter().getItem(position);
-                Intent i = new Intent(track.getId(), null, getActivity(), PlayerActivity.class);
-                i.putExtra("artist", mSavedArtistName);
-                i.putExtra("album", track.getAlbum());
-                i.putExtra("track", track.getName());
-                i.putExtra("imageurl", track.getImageFullUrl());
-                Log.d("previewURL", track.getPreview_url());
-                startActivity(i);*/
 
-                mListener.onTrackSelected(mSavedArtistName, mTracksList, position);
+            mListener.onTrackSelected(mSavedArtistName, mTracksList, position);
             }
         });
 

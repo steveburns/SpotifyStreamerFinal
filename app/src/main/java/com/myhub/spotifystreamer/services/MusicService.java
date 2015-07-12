@@ -42,13 +42,6 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-/*      Parcelable[] parcelables = intent.getParcelableArrayExtra(Constants.TRACKS);
-        mTracks = Arrays.copyOf(parcelables, parcelables.length, ParcelableTrack[].class);
-        mPosition = intent.getIntExtra(Constants.POSITION, 0);
-        mSeek = intent.getIntExtra(Constants.SEEK, 0);
-        mIsOrientationChange = intent.getBooleanExtra(Constants.ORIENTATION, false);
-        mIsNowPlaying = intent.getBooleanExtra(Constants.NOW_PLAYING, false);
-        playTrack(mTracks[mPosition]); */
 
         Log.d("MusicService", "in onStartCommand");
         playTrack((TrackItem) intent.getParcelableExtra(AppConstants.TRACK_ITEM));
@@ -78,14 +71,12 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
             }
 
             // Don't reset the media player if it's an orientation change or coming from the now playing button
- //           if (!mIsOrientationChange && !mIsNowPlaying) {
-                mMediaPlayer.reset();
-                mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                mMediaPlayer.setDataSource(track.getPreview_url());
-                mMediaPlayer.setOnPreparedListener(this);
-                mMediaPlayer.setOnErrorListener(this);
-                mMediaPlayer.prepareAsync();
- //           }
+            mMediaPlayer.reset();
+            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mMediaPlayer.setDataSource(track.getPreview_url());
+            mMediaPlayer.setOnPreparedListener(this);
+            mMediaPlayer.setOnErrorListener(this);
+            mMediaPlayer.prepareAsync();
 
 
         } catch (Exception e) {
