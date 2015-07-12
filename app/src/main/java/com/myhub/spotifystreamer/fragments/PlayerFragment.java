@@ -4,6 +4,7 @@ package com.myhub.spotifystreamer.fragments;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
@@ -137,6 +138,17 @@ public class PlayerFragment extends DialogFragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getActivity().unbindService(mConnection);
     }
 
     private TrackItem getCurrentTrack() {

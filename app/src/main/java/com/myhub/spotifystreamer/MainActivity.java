@@ -1,5 +1,6 @@
 package com.myhub.spotifystreamer;
 
+import android.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.myhub.spotifystreamer.fragments.ArtistSearchFragment;
 import com.myhub.spotifystreamer.fragments.PlayerFragment;
@@ -33,14 +35,10 @@ public class MainActivity extends AppCompatActivity implements
 
     private boolean mTwoPane;
 
-//    @InjectView(R.id.listView) ListView myListView;
-//    @InjectView(R.id.artistSearchText) EditText artistSearchText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        ButterKnife.inject(this);
 
         if(findViewById(R.id.fragment_top_tracks_container) != null) {
             Log.d("MainActivity", "This is 2 Pane device");
@@ -61,8 +59,6 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-//        outState.putParcelableArrayList(KEY_ARTIST_LIST, mArtistList);
-//        outState.putString(KEY_ARTIST_SEARCH, mSavedSearchText);
         super.onSaveInstanceState(outState);
     }
 
@@ -73,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     public void restoreInstanceState(Bundle savedState) {
-//        mArtistList = savedState.getParcelableArrayList(KEY_ARTIST_LIST);
-//        mSavedSearchText = savedState.getString(KEY_ARTIST_SEARCH);
     }
 
     @Override
@@ -82,6 +76,24 @@ public class MainActivity extends AppCompatActivity implements
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.now_playing) {
+
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            Fragment playerFragment = fm.findFragmentByTag(AppConstants.PLAYER_FRAG_TAG);
+            if (playerFragment != null && playerFragment instanceof PlayerFragment) {
+                ((PlayerFragment)playerFragment).show(ft, AppConstants.PLAYER_FRAG_TAG);
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -109,9 +121,6 @@ public class MainActivity extends AppCompatActivity implements
         FragmentTransaction ft = fm.beginTransaction();
         Fragment prev = fm.findFragmentByTag(AppConstants.PLAYER_FRAG_TAG);
         if (prev != null) {
-
-            // TODO: this may not be the right way to do this.
-            // Maybe just show existing one.
             ft.remove(prev);
         }
         ft.addToBackStack(null);
@@ -120,41 +129,5 @@ public class MainActivity extends AppCompatActivity implements
         PlayerFragment fragment = PlayerFragment.newInstance(artistName, tracksList, position);
         fragment.show(ft, AppConstants.PLAYER_FRAG_TAG);
 
-  //      getSupportFragmentManager().beginTransaction()
-  //              .replace(android.R.id.content, fragment, "")
-  //              .commit();
-
-        /*
-        Android sample ---------
-
-    // DialogFragment.show() will take care of adding the fragment
-    // in a transaction.  We also want to remove any currently showing
-    // dialog, so make our own transaction and take care of that here.
-    FragmentTransaction ft = getFragmentManager().beginTransaction();
-    Fragment prev = getFragmentManager().findFragmentByTag("dialog");
-    if (prev != null) {
-        ft.remove(prev);
-    }
-    ft.addToBackStack(null);
-
-    // Create and show the dialog.
-    DialogFragment newFragment = MyDialogFragment.newInstance(mStackLevel);
-    newFragment.show(ft, "dialog");
-         */
-
-        /* -- Jordan's code
-
-            FragmentManager fragmentManager = ((AppCompatActivity) mContext).getSupportFragmentManager();
-            PlayerFragment fragment = PlayerFragment.newInstance(mTracks, mPosition, false);
-
-            if (mContext.getResources().getBoolean(R.bool.isTablet)) {
-                fragment.show(fragmentManager, PLAYER_DIALOG_TAG);
-            } else {
-                fragmentManager.beginTransaction()
-                        .replace(android.R.id.content, fragment, PLAYER_FRAG_TAG)
-                        .commit();
-            }
-
-         */
     }
 }
